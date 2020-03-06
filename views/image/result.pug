@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .container-fluid
+        .animated.fadeIn
+            .row
+                .col-lg-6
+                    .card
+                        .card-header
+                            strong Original
+                        .card-body
+                            .row
+                                .col-lg-12
+                                    img.img-fluid.mx-auto.d-block.mt-2.w-75(src='/img/data/'+file_original)
+
+                .col-lg-6
+                    .card
+                        .card-header
+                            strong Result
+                        .card-body
+                            .row
+                                .col-lg-12
+                                    img.img-fluid.mx-auto.d-block.mt-2.w-75(src='/results/images/'+file_box)

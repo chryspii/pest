@@ -1,0 +1,5 @@
+classes = 102
+train = requirement/train.txt
+valid = requirement/test.txt
+names = requirement/obj.names
+backup = backup/

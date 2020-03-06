@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    .container-fluid
+        .animated.fadeIn
+            .row
+                .col-lg-6
+                    form(action="upload/process" method="post" enctype="multipart/form-data")
+                        .card
+                            .card-header
+                                strong Upload Pest Image
+                            .card-body
+                                .row
+                                    .col-lg-12
+                                        .custom-file
+                                            input#input-file.custom-file-input(type="file", name="image-crop")
+                                            label.custom-file-label
+                                                span#file-name Choose File
+                            .card-footer
+                                button.btn.btn-sm.btn-success(type='submit')
+                                        i.fa.fa-dot-circle-o
+                                        |  Submit
+
+                .col-lg-6
+                    .card
+                        .card-header
+                            strong Preview
+                        .card-body
+                            .row
+                                .col-lg-12
+                                    img#img-upload.img-fluid.mx-auto.d-block.mt-2
+
+block customscript
+    script.
+        $(document).on('change', '#input-file', function() {
+            var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            $('#file-name').text(label)
+        })
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $('#input-file').change(function() {
+            readURL(this)
+        })

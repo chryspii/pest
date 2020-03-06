@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container-fluid
+    .animated.fadeIn
+      .row
+        .col-lg-12
+          .card
+            .card-header
+              i.fa.fa-align-justify
+              |  Pest Data
+            .card-body
+              table.table.table-responsive-sm.table-striped
+                thead
+                  tr
+                    th.text-center No
+                    th.text-center Date processed
+                    th.text-center Original Image
+                    th.text-center Prediction Image
+                tbody
+                  each val, index in result
+                    tr
+                      td.text-center= index+1
+                      td.text-center= result[index]['created_at']
+                      td.text-center.w-25
+                        img.img-fluid.img-thumbnail(src='/img/data/'+result[index].file_original)
+                      td.text-center.w-25
+                        img.img-fluid.img-thumbnail(src='/results/images/'+result[index].file_prediction)

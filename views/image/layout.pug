@@ -1,0 +1,83 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
+    title Farm - Dashboard
+    // Icons
+    link(rel='icon', type='image/ico', href='./img/favicon.ico', sizes='any')
+    link(href='/templates/@coreui/icons/css/coreui-icons.min.css', rel='stylesheet')
+    link(href='/templates/flag-icon-css/css/flag-icon.min.css', rel='stylesheet')
+    link(href='/templates/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/templates/simple-line-icons/css/simple-line-icons.css', rel='stylesheet')
+    // Main styles for this application
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/vendors/pace-progress/css/pace.min.css', rel='stylesheet')
+
+    block customcss
+  body.app.header-fixed.sidebar-fixed.aside-menu-fixed.sidebar-lg-show
+    header.app-header.navbar
+      button.navbar-toggler.sidebar-toggler.d-lg-none.mr-auto(type='button', data-toggle='sidebar-show')
+        span.navbar-toggler-icon
+      a.navbar-brand(href='#')
+        | Pest AI
+        img.navbar-brand-minimized(src='/img/brand/sygnet.svg', width='30', height='30', alt='CoreUI Logo')
+      button.navbar-toggler.sidebar-toggler.d-md-down-none(type='button', data-toggle='sidebar-lg-show')
+        span.navbar-toggler-icon
+      ul.nav.navbar-nav.d-md-down-none
+        li.nav-item.px-3
+          a.nav-link(href='#') Dashboard
+      ul.nav.navbar-nav.ml-auto
+        li.nav-item.dropdown
+          a.nav-link(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+            img.img-avatar(src='/img/avatars/6.png', alt='admin@bootstrapmaster.com')
+          .dropdown-menu.dropdown-menu-right
+            .dropdown-header.text-center
+              strong Settings
+            a.dropdown-item(href='#')
+              i.fa.fa-user
+              |  Profile
+            a.dropdown-item(href='#')
+              i.fa.fa-wrench
+              |  Settings
+            .dropdown-divider
+            a.dropdown-item(href='#')
+              i.fa.fa-lock
+              |  Logout
+      button.navbar-toggler.aside-menu-toggler.d-md-down-none(type='button', data-toggle='aside-menu-lg-show')
+        span.navbar-toggler-icon
+    .app-body
+      .sidebar
+        nav.sidebar-nav
+          ul.nav
+            li.nav-item
+              a.nav-link(href='/')
+                i.nav-icon.icon-speedometer
+                |  Dashboard
+            li.nav-title Processing
+            li.nav-item
+              a.nav-link(href='/upload')
+                i.nav-icon.icon-cursor
+                |  Upload Image
+        button.sidebar-minimizer.brand-minimizer(type='button')
+      main.main
+        ol.breadcrumb
+          li.breadcrumb-item Home
+          li.breadcrumb-item.active Upload
+        block content
+
+    block footer
+      footer.app-footer
+        div
+          a(href='/login') PestAI 
+          span © 2019 CITI
+    
+    block javascript
+      script(src='/templates/jquery/dist/jquery.min.js')
+      script(src='/templates/popper.js/dist/umd/popper.min.js')
+      script(src='/templates/bootstrap/dist/js/bootstrap.min.js')
+      script(src='/templates/pace-progress/pace.min.js')
+      script(src='/templates/perfect-scrollbar/dist/perfect-scrollbar.min.js')
+      script(src='/templates/@coreui/coreui/dist/js/coreui.min.js')
+    
+    block customscript

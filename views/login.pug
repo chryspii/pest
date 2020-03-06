@@ -1,0 +1,62 @@
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
+		title Pest - Login
+		// Icons
+		link(href='templates/@coreui/icons/css/coreui-icons.min.css', rel='stylesheet')
+		link(href='templates/flag-icon-css/css/flag-icon.min.css', rel='stylesheet')
+		link(href='templates/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+		link(href='templates/simple-line-icons/css/simple-line-icons.css', rel='stylesheet')
+		// Main styles for this application
+		link(href='css/style.css', rel='stylesheet')
+		link(href='vendors/pace-progress/css/pace.min.css', rel='stylesheet')
+	body.app.flex-row.align-items-center
+		.container
+			.row.justify-content-center
+				.col-md-8
+					.card-group
+						.card.p-4
+							.card-body
+								h1 Login
+								p.text-muted Sign In to your account
+								.input-group.mb-3
+									.input-group-prepend
+										span.input-group-text
+											i.icon-user
+									input.form-control(id='txt-username', name='txt-username', type='text', placeholder='Username')
+								.input-group.mb-4
+									.input-group-prepend
+										span.input-group-text
+											i.icon-lock
+									input.form-control(id='txt-password', name='txt-password', type='password', placeholder='Password')
+								.row
+									.col-6
+										button.btn.btn-success.px-4(type='button', id='btn-submit') Login
+									.col-6.text-right
+										button.btn.btn-link.px-0(type='button') Forgot password?
+						.card.text-white.bg-success.py-5.d-md-down-none(style='width:44%')
+							.card-body.text-center
+								div
+									h2 Pest AI
+									img.d-block.mx-auto(src='img/other/ladybug.png')
+		// CoreUI and necessary plugins
+		script(src='templates/jquery/dist/jquery.min.js')
+		script(src='templates/popper.js/dist/umd/popper.min.js')
+		script(src='templates/bootstrap/dist/js/bootstrap.min.js')
+		script(src='templates/pace-progress/pace.min.js')
+		script(src='templates/perfect-scrollbar/dist/perfect-scrollbar.min.js')
+		script(src='templates/@coreui/coreui/dist/js/coreui.min.js')
+		script.
+			$(document).on('click', '#btn-submit', function(e) {
+				e.preventDefault();
+
+				var username = $('#txt-username').val();
+				var password = $('#txt-password').val();
+
+				if(username == 'admin' && password == 'admin') {
+					window.location.href = "/";
+				}
+			})
+
